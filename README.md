@@ -261,3 +261,9 @@ You may partition the hard disk.
 ```
 docker images
 ```
+
+### Deleting an image from Local Docker Registry
+```
+docker rmi hello-world:latest
+```
+
