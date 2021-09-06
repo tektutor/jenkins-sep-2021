@@ -72,3 +72,5 @@ git remote -v
 git push -u origin master
 ```
 When it prompts for user, type your email-id that is associated with your GitHub account.  You need to paste the Personal Access Token of your GitHub account as password when prompted.
+
+At this point, you may refresh you GitHub repo and see your local files pushed into your GitHub !
