@@ -281,3 +281,8 @@ docker ps
 ```
 docker ps -a
 ```
+
+### Renaming a container
+```
+docker rename current-container-name new-container-name
+```
