@@ -221,8 +221,10 @@ You may partition the hard disk.
 ### What is a Docker Container?
   - is an instance of Docker Image
   - an application process
+  - are not an OS but they mimic(appear like a VM)
+  - they do not OS Kernel, it shares the kernel just like how other application process shares the underlying OS kernel.
   - runs in its network namespace
-  - has it own Network Stack, hence it has its own Network Interface Card(NIC)
+  - has it own Network Stack(OSI Layers), hence it has its own software defined Network Interface Card(NIC)
   - has an IP Address (Private)
   - supports 3 types of Network
        - Bridge network (172.17.0.0/16)
@@ -233,4 +235,29 @@ You may partition the hard disk.
        - None network
            - any container that doesn't need any network support, they join this network
 
+### How CentOS Linux Distribution is different from Ubuntu Distribution?
+ - Ubuntu uses Qt GUI Framework
+ - CentOS uses GTK GUI Framework
+ - Ubuntu used apt-get package manager
+ - CentOS uses yum, rpm package manager
 
+### What do you get from a CentOS containers?
+ - Package manager (yum)
+ - Network Stack (OSI Layer)
+ - shell
+ - minimal linux tools
+ - Your application and its dependencies
+ - containers depends on underlying OS for Linux Kernel
+
+### What do you get from an Ubuntu contianers?
+ - Package manager (apt-get)
+ - Network Stack (OSI Layer)
+ - shell
+ - minimal linux tools
+ - Your application and its dependencies
+ - container depends on underlying OS for Linux Kernel
+
+### Listing Docker Images from Local Docker Registry
+```
+docker images
+```
