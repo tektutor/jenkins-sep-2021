@@ -45,7 +45,7 @@ You will see that cars.txt file is untracked.
 
 ### You need to stage the file so that Git can track the changes as shown below
 ```
-git add cars.txt
+git add cars.txtdocker run hello-world:latest
 git status
 ```
 Now you will see the file cars.txt in green color as new file. From this point, Git will track the changes done in cars.txt file.
@@ -267,3 +267,17 @@ docker images
 docker rmi hello-world:latest
 ```
 
+### Creating a container
+```
+docker run hello-world:latest
+```
+
+### Listing the running containers
+```
+docker ps
+```
+
+### Listing all containers including exited ones
+```
+docker ps -a
+```
