@@ -286,3 +286,31 @@ docker ps -a
 ```
 docker rename current-container-name new-container-name
 ```
+
+### Creating container in background mode
+```
+docker run -dit --name ubuntu4 --hostname ubuntu4 ubuntu:16.04 /bin/bash
+```
+Once the container is created, the control returns back to the original shell on your local machine.
+The container will continue to run in the background.
+
+### Creating container in foreground(interactive) mode
+```
+docker run -it --name ubuntu1 --hostname ubuntu1 ubuntu:16.04 /bin/bash
+```
+Once the container is created, we will be taken inside the container's shell.
+
+Highly Available(HA) Applications
+  - No matter whatever goes wrong your application should be alive (24/7 - 365 your application should be live)
+
+### Monolithic vs Microservices
+Monolithic Architecture
+  - One single binary (.ear) that bundles several jar files
+  - Centralized Database Server (Oracle DB Server - RDBMS)
+
+Microservice Architecture
+  - distributed computing
+  - NoSQL Databases ( Couchbase, CouchDB, Cassandra, MongoDB etc., )
+       - Lightweight (small footprint)
+       - Group of databases work like a Cluster of Databases
+
