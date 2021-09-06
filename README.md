@@ -91,3 +91,29 @@ git clone
 ### Git pull vs clone
 Git clone - will get a copy of entire repository from GitHub to Local
 Git pull  - will only get the delta changes from GitHub to Local, assumption is you already have clone it before pull.
+
+# Docker
+
+### Installing Docker in CentOS 8
+```
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce --allowerasing
+sudo systemctl enable docker && sudo systemctl start docker
+sudo systemctl status docker
+```
+
+### See if you issue docker commands (Try this as rps user
+```
+docker --version
+docker images
+```
+
+### Troubleshooting permission denied error
+```
+sudo usermod -aG docker rps
+sudo su rps
+docker images
+```
+
+
