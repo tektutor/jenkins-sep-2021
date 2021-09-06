@@ -1,3 +1,11 @@
+### Version Control Softwares
+Client/Server Architecture
+- CVS 
+- SVN
+- Perforce
+- IBM Clearcase
+- Microsoft Visual Source Safe (VSS)
+
 # Git commands
 
 ### Open a terminal in your CentOS Lab
@@ -74,3 +82,12 @@ git push -u origin master
 When it prompts for user, type your email-id that is associated with your GitHub account.  You need to paste the Personal Access Token of your GitHub account as password when prompted.
 
 At this point, you may refresh you GitHub repo and see your local files pushed into your GitHub !
+
+### Git clone ( Taking a snapshot copy of repository from GitHub to Local )
+```
+git clone
+```
+
+### Git pull vs clone
+Git clone - will get a copy of entire repository from GitHub to Local
+Git pull  - will only get the delta changes from GitHub to Local, assumption is you already have clone it before pull.
