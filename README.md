@@ -51,3 +51,24 @@ git status
 
 Now your changes are committed locally
 
+### Adding your GitHub repo to your local git
+```
+git remote add origin https://github.com/tektutor/gitdemo.git
+```
+You may verify to see if your remote Github url is added correctly by
+```
+git remote -v
+```
+
+### Generating a Personal Access Token in GitHub
+1. Login to your GitHub account
+2. Select your account on the top right corner and click on Settings
+3. On the left side menu, select Developer Settings --> Personal Access Token
+4. Select all the access (check boxes) and click on Generate Personal Access Token
+5. Copy and save the token somewhere as you won't be able to see the token details later.
+
+### Push your local changes to your GitHub repository
+```
+git push -u origin master
+```
+When it prompts for user, type your email-id that is associated with your GitHub account.  You need to paste the Personal Access Token of your GitHub account as password when prompted.
