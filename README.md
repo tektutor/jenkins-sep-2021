@@ -294,6 +294,22 @@ docker run -dit --name ubuntu4 --hostname ubuntu4 ubuntu:16.04 /bin/bash
 Once the container is created, the control returns back to the original shell on your local machine.
 The container will continue to run in the background.
 
+### Removing a container graciously
+```
+docker stop ubuntu1
+docker rm ubuntu1
+```
+
+### Stopping a container forcibly
+```
+docker rm -f ubuntu2
+```
+
+### Start a exited container
+```
+docker start ubuntu3
+```
+
 ### Creating container in foreground(interactive) mode
 ```
 docker run -it --name ubuntu1 --hostname ubuntu1 ubuntu:16.04 /bin/bash
