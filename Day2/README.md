@@ -264,3 +264,5 @@ wget https://get.jenkins.io/war-stable/2.303.1/jenkins.war
 java -jar ./jenkins.war
 ```
 The above command will interactively start jenkins CI server, hence we may have to use different Terminal tabs.
+
+Once you see, Jenkins is fully up and running, you may access Jenkins web page from your web browser at http://localhost:8080
