@@ -1,5 +1,12 @@
 # Maven
 
+### Overview
+ - is a build tool used pre-dominently by Java projects
+ - prior to this Apache Ant was the tool used mostly
+ - it is an opensource tool from Apache
+ - Convention over Configuration
+      - 80 - 20 Principle
+
 ### Installing JDK in CentOS 
 ```
 sudo yum install -y epel-release
@@ -44,12 +51,19 @@ OS name: "linux", version: "4.18.0-240.el8.x86_64", arch: "amd64", family: "unix
 [jegan@localhost ~]$ 
 </pre>
 
+### Cloning TekTutor training repository
+You need to clone if you haven't done it already.  This is done only the first time, moving forward whenever I push code changes to this repository, you just need to pull to get the delta changes.
+```
+cd ~
+git clone https://github.com/tektutor/jenkins-sep-2021.git
+```
 
+### Compiling Hello Java application
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day2/Hello
+mvn compile
+```
 
-### Overview
- - is a build tool used pre-dominently by Java projects
- - prior to this Apache Ant was the tool used mostly
- - it is an opensource tool from Apache
- - Convention over Configuration
-      - 80 - 20 Principle
 
