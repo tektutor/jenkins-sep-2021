@@ -166,7 +166,7 @@ hello-world          latest    d1165f221234   6 months ago     13.3kB
 openjdk              12        e1e07dfba89c   2 years ago      470MB
 </pre>
 
-At work place, you may consider using alpine based docker images as base image.  The reason being, our microservice docker image size is pretty fat(487 MB).  In the microservices world, it is considered to big.
+At work place, you may consider using alpine based docker images as base image.  The reason being, our microservice docker image size is pretty fat(487 MB).  In the microservices world, it is considered too big.
 
 ### Let's create a container out of our custom microservice docker image
 ```
