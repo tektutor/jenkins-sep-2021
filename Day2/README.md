@@ -252,16 +252,15 @@ http://172.17.0.2:8080
               - triggers a Maven/Gradle build
               - runs the automated test cases as part build
               - sends out an email with Build report to all team members (Feedback)
-    
-                       
-                       
-                       
-                       
-                       
-     
-     
-     
      
 ### Overview
 - Continuous Integration(CI) Build Server
 - 
+
+#### Setting up Jenkins
+```
+cd ~/Downloads
+wget https://get.jenkins.io/war-stable/2.303.1/jenkins.war
+java -jar ./jenkins.war
+```
+The above command will interactively start jenkins CI server, hence we may have to use different Terminal tabs.
