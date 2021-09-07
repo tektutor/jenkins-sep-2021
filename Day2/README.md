@@ -133,3 +133,75 @@ It is a part of the lifecycle for the POM packaging 'jar'. This lifecycle includ
 [INFO] ------------------------------------------------------------------------
 
 </pre>
+
+### Building spring-boot java microservice
+You can compile and package the microservice as shown below. This will package the microservice in a jar file.
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day2/spring-ms
+mvn package
+```
+
+### Containerizing the spring-boot microservice 
+```
+cd ~/jenkins-sep-2021
+cd Day2/spring-ms
+cp target/*.jar hello.jar
+docker build -t tektutor/spring-ms:1.0 .
+```
+At this point, you should be able to see custom docker image
+```
+docker images
+```
+The expected output is
+<pre>
+[jegan@localhost jenkins-sep-2021]$ docker images
+REPOSITORY           TAG       IMAGE ID       CREATED          SIZE
+<b>
+tektutor/spring-ms   1.0       d05e6c1660df   10 minutes ago   487MB
+</b>
+ubuntu               16.04     b6f507652425   7 days ago       135MB
+hello-world          latest    d1165f221234   6 months ago     13.3kB
+openjdk              12        e1e07dfba89c   2 years ago      470MB
+</pre>
+
+At work place, you may consider using alpine based docker images as base image.  The reason being, our microservice docker image size is pretty fat(487 MB).  In the microservices world, it is considered too big.
+
+### Let's create a container out of our custom microservice docker image
+```
+docker run -d --name ms --hostname ms tektutor/spring-ms:1.0
+```
+You can list the containers to verify if ms container is running
+```
+docker ps
+```
+The expected output is
+<pre>
+[jegan@localhost jenkins-sep-2021]$ docker ps
+CONTAINER ID   IMAGE                    COMMAND                CREATED          STATUS          PORTS     NAMES
+<b>
+0a1ecb950650   tektutor/spring-ms:1.0   "java -jar /app.jar"   10 minutes ago   Up 10 minutes             ms
+</b>
+</pre>
+
+### Find the IP Address of the container and access the microservice from command line and web browser
+```
+docker inspect ms | grep IPA
+curl http://172.17.0.2:8080
+```
+The expected output is
+<pre>
+[jegan@localhost jenkins-sep-2021]$ docker inspect ms | grep IPA
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.2",
+                    "IPAMConfig": null,
+                    "IPAddress": "172.17.0.2",
+[jegan@localhost jenkins-sep-2021]$ curl http://172.17.0.2:8080
+<b>
+Greetings from Spring Boot!
+</b>
+</pre>
+
+You may also access the web page from your favourite web browser on the lab machine
+http://172.17.0.2:8080
