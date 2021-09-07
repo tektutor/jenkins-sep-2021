@@ -198,7 +198,7 @@ The expected output is
 [jegan@localhost jenkins-sep-2021]$ curl http://172.17.0.2:8080
 <b>
 Greetings from Spring Boot!
-<b>
+</b>
 </pre>
 
 You may also access the web page from your favourite web browser on the lab machine
