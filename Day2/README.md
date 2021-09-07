@@ -183,3 +183,23 @@ CONTAINER ID   IMAGE                    COMMAND                CREATED          
 </b>
 </pre>
 
+### Find the IP Address of the container and access the microservice from command line and web browser
+```
+docker inspect ms | grep IPA
+curl http://172.17.0.2:8080
+```
+The expected output is
+<pre>
+[jegan@localhost jenkins-sep-2021]$ docker inspect ms | grep IPA
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.2",
+                    "IPAMConfig": null,
+                    "IPAddress": "172.17.0.2",
+[jegan@localhost jenkins-sep-2021]$ curl http://172.17.0.2:8080
+<b>
+Greetings from Spring Boot!
+<b>
+</pre>
+
+You may also access the web page from your favourite web browser on the lab machine
+http://172.17.0.2:8080
