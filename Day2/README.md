@@ -65,6 +65,8 @@ git pull
 cd Day2/Hello
 mvn compile
 ```
+Maven compiles includes the below Maven phases
+1. mvn compile --> this compiles all the sources kept at src/main/java and its sub-folders
 
 ### Compiling Hello Java application and running unit test cases as part of the build
 ```
@@ -73,5 +75,61 @@ git pull
 cd Day2/Hello
 mvn test
 ```
+Maven test includes the below major Maven phases
+1. mvn compile --> this compiles all source kept at src/main/java and its subfolders
+2. mvn testCompile --> this compiles all source kept at src/test/java and its subfolders
+3. mvn test --> this execute the compiled test case
 
+### Just in case, you are curious to list all default maven life-cycle phases
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day2/Hello
+mvn help:describe -Dcmd=compile
+```
+The expected output is
+<pre>
+jegan@localhost Hello]$ mvn help:describe -Dcmd=compile
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.tektutor:tektutor-hello-app >-------------------
+[INFO] Building tektutor-hello-app 1.0.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-help-plugin:3.2.0:describe (default-cli) @ tektutor-hello-app ---
+[INFO] 'compile' is a phase corresponding to this plugin:
+org.apache.maven.plugins:maven-compiler-plugin:3.1:compile
 
+It is a part of the lifecycle for the POM packaging 'jar'. This lifecycle includes the following phases:
+* validate: Not defined
+* initialize: Not defined
+* generate-sources: Not defined
+* process-sources: Not defined
+* generate-resources: Not defined
+* process-resources: org.apache.maven.plugins:maven-resources-plugin:2.6:resources
+* compile: org.apache.maven.plugins:maven-compiler-plugin:3.1:compile
+* process-classes: Not defined
+* generate-test-sources: Not defined
+* process-test-sources: Not defined
+* generate-test-resources: Not defined
+* process-test-resources: org.apache.maven.plugins:maven-resources-plugin:2.6:testResources
+* test-compile: org.apache.maven.plugins:maven-compiler-plugin:3.1:testCompile
+* process-test-classes: Not defined
+* test: org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test
+* prepare-package: Not defined
+* package: org.apache.maven.plugins:maven-jar-plugin:2.4:jar
+* pre-integration-test: Not defined
+* integration-test: Not defined
+* post-integration-test: Not defined
+* verify: Not defined
+* install: org.apache.maven.plugins:maven-install-plugin:2.4:install
+* deploy: org.apache.maven.plugins:maven-deploy-plugin:2.7:deploy
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.675 s
+[INFO] Finished at: 2021-09-06T23:59:26-07:00
+[INFO] ------------------------------------------------------------------------
+
+</pre>
