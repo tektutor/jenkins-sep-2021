@@ -80,4 +80,10 @@ Maven test includes the below major Maven phases
 2. mvn testCompile --> this compiles all source kept at src/test/java and its subfolders
 3. mvn test --> this execute the compiled test case
 
-
+### Just in case, you are curious to list all default maven life-cycle phases
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day2/Hello
+mvn help:describe -Dcmd=compile
+```
