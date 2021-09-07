@@ -133,3 +133,38 @@ It is a part of the lifecycle for the POM packaging 'jar'. This lifecycle includ
 [INFO] ------------------------------------------------------------------------
 
 </pre>
+
+### Building spring-boot java microservice
+You can compile and package the microservice as shown below. This will package the microservice in a jar file.
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day2/spring-ms
+mvn package
+```
+
+### Containerizing the spring-boot microservice 
+```
+cd ~/jenkins-sep-2021
+cd Day2/spring-ms
+cp target/*.jar hello.jar
+docker build -t tektutor/spring-ms:1.0 .
+```
+At this point, you should be able to see custom docker image
+```
+docker images
+```
+The expected output is
+<pre>
+[jegan@localhost jenkins-sep-2021]$ docker images
+REPOSITORY           TAG       IMAGE ID       CREATED          SIZE
+<b>
+tektutor/spring-ms   1.0       d05e6c1660df   10 minutes ago   487MB
+</b>
+ubuntu               16.04     b6f507652425   7 days ago       135MB
+hello-world          latest    d1165f221234   6 months ago     13.3kB
+openjdk              12        e1e07dfba89c   2 years ago      470MB
+</pre>
+
+
+
