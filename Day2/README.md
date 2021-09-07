@@ -65,6 +65,8 @@ git pull
 cd Day2/Hello
 mvn compile
 ```
+Maven compiles includes the below Maven phases
+1. mvn compile --> this compiles all the sources kept at src/main/java and its sub-folders
 
 ### Compiling Hello Java application and running unit test cases as part of the build
 ```
@@ -73,5 +75,9 @@ git pull
 cd Day2/Hello
 mvn test
 ```
+Maven test includes the below major Maven phases
+1. mvn compile --> this compiles all source kept at src/main/java and its subfolders
+2. mvn testCompile --> this compiles all source kept at src/test/java and its subfolders
+3. mvn test --> this execute the compiled test case
 
 
