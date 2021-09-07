@@ -1,0 +1,5 @@
+*.class
+*.log
+*.lst
+*.txt
+target/
