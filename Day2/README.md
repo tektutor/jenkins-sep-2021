@@ -6,6 +6,7 @@
  - it is an opensource tool from Apache
  - Convention over Configuration
       - 80 - 20 Principle
+ - 
 
 ### Installing JDK in CentOS 
 ```
@@ -205,3 +206,62 @@ Greetings from Spring Boot!
 
 You may also access the web page from your favourite web browser on the lab machine
 http://172.17.0.2:8080
+
+# Jenkins
+
+## Agile Methodology
+  - Fail-fast Project development Methodology
+  - In case Waterfall Framework
+      - customer feedback arrives pretty delayed
+      - One in 3 months or 6 months or yearly project/product releases are shared with the customer
+      - If evertything goes well i.e requirements captured is inline with customer's expectation there is no issue
+      - In case there is a deviation from the requirements captured vs actual customer expectation, 
+        then course correction is almost impossible as the effort is already consumed.
+ - SCRUM/Kanban
+     - Agile Frameworks
+     - helps in getting frequent customer feedback
+     - Sprints duration
+           - 1 week(5 days) to 4 (20 days) weeks maximum
+           - SCRUM ceremonies
+                - Daily stand-up meeting
+                   - Inspect and Adapt meeting(Fail-fast meeting)
+                       1. What was yesterday's plan?
+                       2. Were there any obstacles?
+                       3. What you are planning to do today?
+    - What is the equivalent engineering practice to Daily Stand-up meeting?
+         - Whenever code commit happens, there should some tools which detects code commit
+           and grabs the latest code, triggers the build, automates testing and then give a build report(feedback)
+           to the team including the person who did code commit.
+         - Test Driven Development (TDD)
+         - Behaviour Driven Development
+         
+         - Continuous Integration
+               - Source code should be commited(integrated) several times a day by all the team members
+               - Whenever the code is logically complete. To develop a complex functionality, maybe I need to develop
+                 10~15 unit level functions. Whenever I completed one unit-level function along with 
+                 the necessary automated test-cases, I should check-in the code.
+         - Jenkins (CI Server) (Hudson, Teamcity, Bamboo, Microsoft TFS)
+              - a former Sun Microsystems employee by name Koshuke Kawaguji developed Hudson
+              - developed using Java but works for any programming stack
+              - Sun Microsystems was acquired by Oracle (led by Larry Elison)
+              - a part of Hudson team came out of Oracle and they created branch(Jenkins) keeping Hudson code 
+                base as baseline
+              - will automatically detect code changes done in Version Control 
+                (GitHub,GitLab, BitBucket, Perforce,etc)
+              - will get the latest code snapshot from GitHub
+              - triggers a Maven/Gradle build
+              - runs the automated test cases as part build
+              - sends out an email with Build report to all team members (Feedback)
+    
+                       
+                       
+                       
+                       
+                       
+     
+     
+     
+     
+### Overview
+- Continuous Integration(CI) Build Server
+- 
