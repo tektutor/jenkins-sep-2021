@@ -1,5 +1,12 @@
 # Maven
 
+### Overview
+ - is a build tool used pre-dominently by Java projects
+ - prior to this Apache Ant was the tool used mostly
+ - it is an opensource tool from Apache
+ - Convention over Configuration
+      - 80 - 20 Principle
+
 ### Installing JDK in CentOS 
 ```
 sudo yum install -y epel-release
@@ -44,12 +51,11 @@ OS name: "linux", version: "4.18.0-240.el8.x86_64", arch: "amd64", family: "unix
 [jegan@localhost ~]$ 
 </pre>
 
+### Compiling Hello Java application
+```
+cd ~/Training
+cd jenkins-sep-2021/Day2/Hello
+mvn compile
+```
 
-
-### Overview
- - is a build tool used pre-dominently by Java projects
- - prior to this Apache Ant was the tool used mostly
- - it is an opensource tool from Apache
- - Convention over Configuration
-      - 80 - 20 Principle
 
