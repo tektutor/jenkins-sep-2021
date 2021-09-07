@@ -66,4 +66,12 @@ cd Day2/Hello
 mvn compile
 ```
 
+### Compiling Hello Java application and running unit test cases as part of the build
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day2/Hello
+mvn test
+```
+
 
