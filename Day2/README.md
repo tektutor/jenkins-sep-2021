@@ -51,9 +51,15 @@ OS name: "linux", version: "4.18.0-240.el8.x86_64", arch: "amd64", family: "unix
 [jegan@localhost ~]$ 
 </pre>
 
+### Cloning TekTutor training repository
+```
+cd ~
+git clone https://github.com/tektutor/jenkins-sep-2021.git
+```
+
 ### Compiling Hello Java application
 ```
-cd ~/Training/jenkins-sep-2021
+cd ~/jenkins-sep-2021
 git pull
 cd Day2/Hello
 mvn compile
