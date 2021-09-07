@@ -53,8 +53,9 @@ OS name: "linux", version: "4.18.0-240.el8.x86_64", arch: "amd64", family: "unix
 
 ### Compiling Hello Java application
 ```
-cd ~/Training
-cd jenkins-sep-2021/Day2/Hello
+cd ~/Training/jenkins-sep-2021
+git pull
+cd Day2/Hello
 mvn compile
 ```
 
