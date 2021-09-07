@@ -166,5 +166,20 @@ hello-world          latest    d1165f221234   6 months ago     13.3kB
 openjdk              12        e1e07dfba89c   2 years ago      470MB
 </pre>
 
-
+### Let's create a container out of our custom microservice docker image
+```
+docker run -d --name ms --hostname ms tektutor/spring-ms:1.0
+```
+You can list the containers to verify if ms container is running
+```
+docker ps
+```
+The expected output is
+<pre>
+[jegan@localhost jenkins-sep-2021]$ docker ps
+CONTAINER ID   IMAGE                    COMMAND                CREATED          STATUS          PORTS     NAMES
+<b>
+0a1ecb950650   tektutor/spring-ms:1.0   "java -jar /app.jar"   10 minutes ago   Up 10 minutes             ms
+</b>
+</pre>
 
