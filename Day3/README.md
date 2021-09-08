@@ -63,7 +63,14 @@
   - Domain Specific Language (DSL)
 	- language in which the automation script 
 
+### Installing Ansible in CentOS 
+```
+sudo yum install -y epel-release
+sudo yum install -y ansible
+```
+
 ### You may verify if Ansible is installed as shown below (do this as rps user)
 ```
 ansible --version
 ```
+
