@@ -265,7 +265,7 @@ ansible -i hosts all -m shell -a "hostname"
 ```
 The below ansible ad-hoc command will show IP Address of ubuntu1 and ubuntu2 ansible nodes
 ```
-ansible -i hosts all -m shell -a "hostname"
+ansible -i hosts all -m shell -a "hostname -i"
 ```
 
 
