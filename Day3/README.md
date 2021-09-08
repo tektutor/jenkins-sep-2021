@@ -216,3 +216,30 @@ applicable law.
 
 root@ubuntu2:~# exit
 </pre>
+
+### Ansible ping
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day3/Ansible
+ansible -i hosts all -m ping
+```
+The expected output is
+
+<pre>
+[jegan@localhost Ansible]$ ansible -i hosts all -m ping
+ubuntu1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+ubuntu2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+</pre>
