@@ -224,6 +224,11 @@ git pull
 cd Day3/Ansible
 ansible -i hosts all -m ping
 ```
+<pre>
+-i - this switch indicates what follows is the inventory name
+-m - this switch indicates what follows is the name of the module we would like to invoke on Ansible nodoes
+all - indicates the group of machines defined in the inventory file
+</pre>
 The expected output is
 
 <pre>
