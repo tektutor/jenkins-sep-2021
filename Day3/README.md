@@ -73,4 +73,12 @@ sudo yum install -y ansible
 ```
 ansible --version
 ```
+### Finding the total number of Ansible modules supported by your version of ansible
+```
+ansible-doc -l | wc -l
+```
 
+### You can get detailed help about any particular modules as shown below
+```
+ansible-doc apt
+```
