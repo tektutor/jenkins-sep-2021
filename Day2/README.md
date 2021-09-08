@@ -196,9 +196,7 @@ The expected output is
 [jegan@localhost jenkins-sep-2021]$ docker images
 REPOSITORY           TAG       IMAGE ID       CREATED          SIZE
 <b>
-<h3 style="color:#ff0000">Danger
 tektutor/spring-ms   1.0       d05e6c1660df   10 minutes ago   487MB
-</h3>
 </b>
 ubuntu               16.04     b6f507652425   7 days ago       135MB
 hello-world          latest    d1165f221234   6 months ago     13.3kB
