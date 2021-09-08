@@ -3,7 +3,7 @@ package org.tektutor;
 public class Hello {
 
 	public String sayHello() {
-		return "Hello CI!";
+		return "Hello DevOps!";
 	}
 
 	public static void main ( String[] args ) {
