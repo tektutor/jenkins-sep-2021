@@ -119,3 +119,25 @@ ansible-doc -l | wc -l
 ```
 ansible-doc apt
 ```
+
+### Build custom ubuntu image to use as Ansible containers
+We need some Virtual Machines or On-Prem servers to be used as Ansible nodes, since we don't have additional Virtual Machines in training setup, we would like to use containers as Ansible nodes.
+
+Let us generate key pairs for rps user
+```
+ssh-keygen
+```
+Accept all defaults by hitting enter.
+
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day3/ubuntu-ansible
+cp ~/.ssh/id_rsa.pub authorized_keys
+docker build -t tektutor/ansible-ubuntu-node .
+```
+
+You may verify if the docker images is built successfuly
+```
+docker images
+```
