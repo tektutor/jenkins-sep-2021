@@ -326,3 +326,26 @@ java -jar ./jenkins.war
 The above command will interactively start jenkins CI server, hence we may have to use different Terminal tabs.
 
 Once you see, Jenkins is fully up and running, you may access Jenkins web page from your web browser at http://localhost:8080
+
+### Let's create a CI/CD pipeline in Jenkins
+
+1. Create a Freestyle Jenkins Job
+   In the SCM (Source Code Management) Section, select "Git" and paste the below GitHub Repository
+   https://github.com/tektutor/jenkins-sep-2021.git
+   
+   In the Build Triggers section, select "Poll SCM" and paste the below to setup poll for every 2 minutes
+   H/02 * * * *
+   
+   In the Build Section, paste the below
+   
+   
+### Setting up JFrog artifactory as a docker container
+```
+docker run -d --name artifactory --hostname artifactory -p 8081-8082:8081-8082 releases-docker.jfrog.io/jfrog/artifactory-oss:latest
+```
+You may access JFrog Artifactory webpage in the Web browse at http://localhost:8081
+Login credentials are
+<pre>
+Username - admin
+Password - password
+</pre>
