@@ -1,19 +1,15 @@
-- name: First Play 
-  hosts: ubuntu1 
-  gather_facts: no
+- name: First Playbook
+  hosts: all 
   tasks:
     - name: Ping the ansible node
       ping:
 
     - name: Display hostname
       shell: hostname
+      register: output
 
-- name: Second Play 
-  gather_facts: no
-  hosts: ubuntu2 
-  tasks:
-    - name: Ping the ansible node
-      ping:
+    - shell: adfsadf
+      when: ansible_hostname == "ubuntu1"
+      ignore_errors: yes
 
-    - name: Display hostname
-      shell: hostname
+    - debug: var=output.stdout
