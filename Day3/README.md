@@ -268,4 +268,30 @@ The below ansible ad-hoc command will show IP Address of ubuntu1 and ubuntu2 ans
 ansible -i hosts all -m shell -a "hostname -i"
 ```
 
+### Running the first ansible playbook
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day3/Ansible
+ansible-playbook -i hosts ping-playbook.yml
+```
 
+The expected output is
+<pre>
+jegan@localhost Ansible]$ ansible-playbook -i hosts ping-playbook.yml 
+
+PLAY [Ping playbook] ********************************************************************************
+
+TASK [Gathering Facts] ******************************************************************************
+ok: [ubuntu1]
+ok: [ubuntu2]
+
+TASK [Ping the ansible node] ************************************************************************
+ok: [ubuntu2]
+ok: [ubuntu1]
+
+PLAY RECAP ******************************************************************************************
+ubuntu1                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ubuntu2                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+</pre>
