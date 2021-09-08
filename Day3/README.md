@@ -161,3 +161,90 @@ openjdk                                          12        e1e07dfba89c   2 year
 docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ansible-ubuntu-node 
 docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ansible-ubuntu-node 
 ```
+
+### Let SSH into ubuntu1 to test if the custom image works as expected
+```
+ssh -p 2001 root@localhost
+exit
+```
+The expected output is 
+<pre>
+[jegan@localhost jenkins-sep-2021]$ ssh -p 2001 root@localhost
+The authenticity of host '[localhost]:2001 ([::1]:2001)' can't be established.
+ECDSA key fingerprint is SHA256:k1bVnKnB97AVJOFzMLRVkarXFPX11KQfTWLOoL/O7v4.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[localhost]:2001' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.18.0-240.el8.x86_64 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+root@ubuntu1:~# exit
+</pre>
+
+### Let SSH into ubuntu2 to test if the custom image works as expected
+```
+ssh -p 2002 root@localhost
+exit
+```
+The expected output is
+<pre>
+thenticity of host '[localhost]:2002 ([::1]:2002)' can't be established.
+ECDSA key fingerprint is SHA256:k1bVnKnB97AVJOFzMLRVkarXFPX11KQfTWLOoL/O7v4.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[localhost]:2002' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.18.0-240.el8.x86_64 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+root@ubuntu2:~# exit
+</pre>
+
+### Ansible ping
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day3/Ansible
+ansible -i hosts all -m ping
+```
+<pre>
+-i - this switch indicates what follows is the inventory name
+-m - this switch indicates what follows is the name of the module we would like to invoke on Ansible nodoes
+all - indicates the group of machines defined in the inventory file
+</pre>
+The expected output is
+
+<pre>
+[jegan@localhost Ansible]$ ansible -i hosts all -m ping
+ubuntu1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+ubuntu2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+</pre>
