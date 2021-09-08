@@ -161,3 +161,13 @@ openjdk                                          12        e1e07dfba89c   2 year
 docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ansible-ubuntu-node 
 docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ansible-ubuntu-node 
 ```
+
+### Let SSH into ubuntu1 to test if the custom image works as expected
+```
+ssh -p 2001 root@localhost
+```
+
+### Let SSH into ubuntu2 to test if the custom image works as expected
+```
+ssh -p 2002 root@localhost
+```
