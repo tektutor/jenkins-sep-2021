@@ -62,3 +62,8 @@
 	- Salt(SaltStack) 
   - Domain Specific Language (DSL)
 	- language in which the automation script 
+
+### You may verify if Ansible is installed as shown below (do this as rps user)
+```
+ansible --version
+```
