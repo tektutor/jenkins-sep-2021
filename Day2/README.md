@@ -343,3 +343,9 @@ Once you see, Jenkins is fully up and running, you may access Jenkins web page f
 ```
 docker run -d --name artifactory --hostname artifactory -p 8081-8082:8081-8082 releases-docker.jfrog.io/jfrog/artifactory-oss:latest
 ```
+You may access JFrog Artifactory webpage in the Web browse at http://localhost:8081
+Login credentials are
+<pre>
+Username - admin
+Password - password
+</pre>
