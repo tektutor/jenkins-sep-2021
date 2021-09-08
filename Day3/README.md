@@ -141,3 +141,17 @@ You may verify if the docker images is built successfuly
 ```
 docker images
 ```
+The expected output is
+<pre>
+[jegan@localhost ubuntu-ansible]$ docker images
+REPOSITORY                                       TAG       IMAGE ID       CREATED         SIZE
+<b>
+tektutor/ansible-ubunutu-node                    latest    e6a97031776d   2 minutes ago   220MB
+</b>
+
+tektutor/spring-ms                               1.0       d05e6c1660df   26 hours ago    487MB
+releases-docker.jfrog.io/jfrog/artifactory-oss   latest    60c5d817a8d1   2 days ago      980MB
+ubuntu                                           16.04     b6f507652425   8 days ago      135MB
+hello-world                                      latest    d1165f221234   6 months ago    13.3kB
+openjdk                                          12        e1e07dfba89c   2 years ago     470MB
+</pre>
