@@ -165,6 +165,7 @@ docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/a
 ### Let SSH into ubuntu1 to test if the custom image works as expected
 ```
 ssh -p 2001 root@localhost
+exit
 ```
 The expected output is 
 <pre>
@@ -192,6 +193,7 @@ root@ubuntu1:~# exit
 ### Let SSH into ubuntu2 to test if the custom image works as expected
 ```
 ssh -p 2002 root@localhost
+exit
 ```
 The expected output is
 <pre>
