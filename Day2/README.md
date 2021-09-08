@@ -1,12 +1,24 @@
 # Maven
 
 ### Overview
- - is a build tool used pre-dominently by Java projects
- - prior to this Apache Ant was the tool used mostly
- - it is an opensource tool from Apache
- - Convention over Configuration
+ - is a build tool used pre-dominently by Java projects, however it's language agnostic build tool.
+ - prior to this Apache Ant was the tool used mostly for Java projects
+ - Ant doesn't have any standards, hence different teams use different project folder conventions which leads
+   to confusions.
+ - Ant doesn't have dependency management support, hence it is our responsibility to downloads third-party library
+   jars, place them in respective folders and we need to take care of classpaths.
+ - pretty much all the above issues are resolved by Maven, hence Maven is a better build tool
+ - Maven is an opensource tool from Apache
+ - Maven Convention over Configuration
       - 80 - 20 Principle
- - 
+      - most common use-cases doesn't require any configuration when we strictly follow Maven's convention
+      - but when you can't follow Maven's convention, let's say a legacy project that currently uses Ant as a build
+        tool may not be inline with Maven's convention.  In such cases, you may configure Maven to pick 
+        application and test source code from your preffered folders.
+ - Maven supports 3 in-built lifecycle's
+     1. default (23 Phases)
+     2. clean   (3 Phases)
+     3. site    (4 Phases)
 
 ### Installing JDK in CentOS 
 ```
@@ -151,7 +163,7 @@ cd Day2/spring-ms
 cp target/*.jar hello.jar
 docker build -t tektutor/spring-ms:1.0 .
 ```
-At this point, you should be able to see custom docker image
+At this point, you should be able to see your custom docker image
 ```
 docker images
 ```
@@ -167,7 +179,7 @@ hello-world          latest    d1165f221234   6 months ago     13.3kB
 openjdk              12        e1e07dfba89c   2 years ago      470MB
 </pre>
 
-At work place, you may consider using alpine based docker images as base image.  The reason being, our microservice docker image size is pretty fat(487 MB).  In the microservices world, it is considered too big.
+At work place, you may consider using alpine based docker images as base image for your custom Docker images.  The reason being, our microservice docker image size is pretty fat(487 MB).  In the microservices world, it is considered too big.
 
 ### Let's create a container out of our custom microservice docker image
 ```
@@ -213,14 +225,14 @@ http://172.17.0.2:8080
   - Fail-fast Project development Methodology
   - In case Waterfall Framework
       - customer feedback arrives pretty delayed
-      - One in 3 months or 6 months or yearly project/product releases are shared with the customer
+      - Once in 3 months or 6 months or yearly project/product releases are shared with the customer
       - If evertything goes well i.e requirements captured is inline with customer's expectation there is no issue
       - In case there is a deviation from the requirements captured vs actual customer expectation, 
         then course correction is almost impossible as the effort is already consumed.
  - SCRUM/Kanban
      - Agile Frameworks
-     - helps in getting frequent customer feedback
-     - Sprints duration
+     - helps in getting frequent customer feedbacks
+     - Sprint duration
            - 1 week(5 days) to 4 (20 days) weeks maximum
            - SCRUM ceremonies
                 - Daily stand-up meeting
@@ -229,33 +241,57 @@ http://172.17.0.2:8080
                        2. Were there any obstacles?
                        3. What you are planning to do today?
     - What is the equivalent engineering practice to Daily Stand-up meeting?
-         - Whenever code commit happens, there should some tools which detects code commit
+         - Whenever code commit happens, there should be some tools which detects code commit
            and grabs the latest code, triggers the build, automates testing and then give a build report(feedback)
            to the team including the person who did code commit.
          - Test Driven Development (TDD)
-         - Behaviour Driven Development
+         - Behaviour Driven Development (BDD)
+         - Domain Driven Development (DDD)
          
          - Continuous Integration
-               - Source code should be commited(integrated) several times a day by all the team members
-               - Whenever the code is logically complete. To develop a complex functionality, maybe I need to develop
-                 10~15 unit level functions. Whenever I completed one unit-level function along with 
-                 the necessary automated test-cases, I should check-in the code.
+               - Source code should be commited(integrated) to dev branch several times a day by all the team members
+               - Whenever the code is logically complete, code must be committed without delay. 
+                 To develop a complex functionality, maybe you need to develop 10~15 unit level functions. Whenever 
+                 you completed one unit-level function along with the necessary automated test-cases, you 
+                 should check-in the code.
+               - build failures are seen as a good thing in case build fails due to test case failures.
+               - When one or more automated test cases fail, your automated test cases have caught some bugs, 
+                 which is the reason you are following Continuous Integration.
+                 
          - Jenkins (CI Server) (Hudson, Teamcity, Bamboo, Microsoft TFS)
-              - a former Sun Microsystems employee by name Koshuke Kawaguji developed Hudson
-              - developed using Java but works for any programming stack
+              - a former Sun Microsystems employee by name Kohsuke Kawaguji developed Hudson CI Server
+              - developed using Java but works for any programming language stack
               - Sun Microsystems was acquired by Oracle (led by Larry Elison)
               - a part of Hudson team came out of Oracle and they created branch(Jenkins) keeping Hudson code 
                 base as baseline
+              - Oracle maintains Hudson CI Server, while the Jenkins CI Server is being developed as opensource tool
+                by the Kohsuke Kawaguji and Opensource community
               - will automatically detect code changes done in Version Control 
                 (GitHub,GitLab, BitBucket, Perforce,etc)
               - will get the latest code snapshot from GitHub
-              - triggers a Maven/Gradle build
-              - runs the automated test cases as part build
+              - triggers a Maven/Gradle/Make/MSBuild/etc build
+              - runs the automated test cases as part of build
               - sends out an email with Build report to all team members (Feedback)
      
 ### Overview
-- Continuous Integration(CI) Build Server
-- 
+
+#### Continuous Integration(CI)
+     - Code in frequently integrated several times a day by all the team members
+     - any time code is commited, the respective member will also write automated test cases to test his/her
+       code part of code commit
+     - CI Servers like Jenkins, automates the build and test process and give Build Report as feedback
+     - Each time code is commited, CI Servers repeats the existing and new Test cases added to verify
+       the new functionality and existing functionalities.  This helps in reporting bugs as and when new code
+       is committed (fail-fast approach).
+
+#### Continuous Deployment
+     - Release binaries are tested automatically in Dev environment and promoted to QA environment for
+       further automated test cases added by QA team, which is then promoted to Pre-prod environment to
+       further test in a production equivalent environment to certify the release is good to go live or not.
+       
+#### Continuous Delivery
+     - Once the release binaries are tested thoroughly, the release binaries will be deployed to the live production
+       environment or to the Customer's staging environment to go live any time the customer decides.
 
 #### Setting up Jenkins
 ```
