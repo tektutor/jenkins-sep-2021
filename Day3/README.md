@@ -312,7 +312,20 @@ cd Day3/Ansible
 ansible-playbook install-nginx-playbook.yml
 ```
 
+### What happens internally when you perform ansible ping
+```
+ansible ubuntu1 -m ping
+```
 
+1. Ansible find ansible.cfg in current directory and identifies the inventory it should be using
+2. From the inventory file, Ansible understand how to connect to ubuntu1 ansible node
+3. Ansible will perform SSH into ubuntu1 ansible node
+4. Ansible creates tmp directory in Ansible Controller machine(ACM) and Ansible node
+5. Ansible copies the ping.py from ACM to Ansible node
+6. Ansible gives execute permission to the ping.py in the Ansible node
+7. Ansible executes the ping.py file on the Ansible node
+8. Ansible records the output of the ping.py and cleans up the tmp folder created on the Ansible node 
+9. Ansible gives a summary of the output in the Ansible Controller Machine.
 
 
 
