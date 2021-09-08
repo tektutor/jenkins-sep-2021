@@ -1,5 +1,19 @@
-- name: Ping playbook
-  hosts: all
+- name: First Play 
+  hosts: ubuntu1 
+  gather_facts: no
   tasks:
     - name: Ping the ansible node
       ping:
+
+    - name: Display hostname
+      shell: hostname
+
+- name: Second Play 
+  gather_facts: no
+  hosts: ubuntu2 
+  tasks:
+    - name: Ping the ansible node
+      ping:
+
+    - name: Display hostname
+      shell: hostname
