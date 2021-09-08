@@ -295,3 +295,22 @@ ubuntu1                    : ok=2    changed=0    unreachable=0    failed=0    s
 ubuntu2                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
 </pre>
+
+### Ansible Playbook structure
+1. Playbook is a YAML file
+2. Each Playbook can have a list of Play
+3. Each Play will target atleast one Ansible Node(Server)
+4. Each Play has an optional Tasks and Roles sections
+5. Each Tasks section has a list of Tasks
+6. Each Task has a description and can invoke atmost one Ansible Module(Python or Powershell script).
+
+
+
+
+
+
+
+
+
+
+
