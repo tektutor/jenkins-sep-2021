@@ -1,3 +1,38 @@
+# DevOps
+  - industry direction is everyone should code
+  - Developers
+       - do application development as their primary task
+       - DevOps expects that developers should learn how to automate Unit/Integration by writing code
+      		- Test Driven Development (TDD)
+      		- Java
+      	            - Test Frameworks
+      	                 - JUnit, TestNg, Cucumber, Mockito, PowerMock, EasyMock, JMock, etc.,
+      	        - C/C++
+      	            - Test Frameworks
+      	                 - CppUnit, GoogleTest, GoogleMock, etc
+      	        - JavaScript, Angular, NodeJS, etc
+      	            - Test Frameworks
+      	                 - Jasmine, Karma, etc.,
+      - Developers are also expected to learn Configuration Management Tools to automate Dev environment setup
+ - QA
+     - does end-to-end smoke test, component test, API test, functional testing, Performance test, 
+       Stress Test, Load Test, etc
+     - DevOps recommends QA to automate all the types of testing by "Writing code"
+       Test Frameworks
+           - Behaviour Driven Development (BDD - Test Frameworks)
+           - Domain Driven Development (DDD - Test Frameworks)
+           - Selenium, Cucumber, Postman,etc
+     - QA folks are expected to learn Configuration Management Tools to automate QA environment setup
+ 
+ - Operations Team (System Administrators, DBA, Infra Engineers, Production support )
+     - Probably Operation Team have been doing administrative activities manually 
+     - DevOps recommends them to automate all the administrative activities by "Writing code"
+       Configuration Management Tools
+          - Ansible, Puppet, Chef & SaltStack
+     - are expected to automate Pre-Prod, Staging, Production environment setup using Configuration Management Tools
+ 
+
+
 # Ansible
   - Configuration Management Tool
 	- it is a Infrastruce as a Code Tool
@@ -7,7 +42,9 @@
 		- install/uninstall softwares (Oracle, Weblogic,etc,.)
 		- configure softwares (Configure Weblogic, etc)
 		- Restart services/machines
-
+  - comes in 2 flavours
+     - Ansible Core (Opensource)
+     - Ansible Tower - RedHat(IBM Product)
   - open source tool
   - developed by Michael Deehan
   - Ansible is developed in Python
