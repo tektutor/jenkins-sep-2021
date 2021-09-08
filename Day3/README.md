@@ -217,7 +217,7 @@ applicable law.
 root@ubuntu2:~# exit
 </pre>
 
-### Ansible ping
+### Ansible ping ad-hoc command
 ```
 cd ~/jenkins-sep-2021
 git pull
@@ -248,3 +248,24 @@ ubuntu2 | SUCCESS => {
     "ping": "pong"
 }
 </pre>
+
+### Commonly used ansible ad-hoc commands
+```
+ansible -i hosts all -m setup
+```
+setup is an ansible module(setup.py) that collects lot of facts(meta-data) about ansible nodes
+For example
+  - ansible_os_family : Debian or RedHat, etc
+  - ansible_distribution: Ubuntu or CentOS
+  - ansible_hostname: ubuntu1, ubuntu2
+
+The below ansible ad-hoc command will show hostname of ubuntu1 and ubuntu2 ansible nodes
+```
+ansible -i hosts all -m shell -a "hostname"
+```
+The below ansible ad-hoc command will show IP Address of ubuntu1 and ubuntu2 ansible nodes
+```
+ansible -i hosts all -m shell -a "hostname"
+```
+
+
