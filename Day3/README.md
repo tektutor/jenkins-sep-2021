@@ -155,3 +155,9 @@ ubuntu                                           16.04     b6f507652425   8 days
 hello-world                                      latest    d1165f221234   6 months ago    13.3kB
 openjdk                                          12        e1e07dfba89c   2 years ago     470MB
 </pre>
+
+### Let us create ubuntu1 and ubuntu2 containers
+```
+docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ansible-ubuntu-node 
+docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ansible-ubuntu-node 
+```
