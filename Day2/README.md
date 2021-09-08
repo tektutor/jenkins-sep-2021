@@ -79,7 +79,7 @@ cd Day2/Hello
 mvn compile
 ```
 Maven compiles includes the below Maven phases
-1. mvn compile --> this compiles all the sources kept at src/main/java and its sub-folders
+1. mvn compile --> this compiles all the source code kept at src/main/java and its sub-folders
 
 ### Compiling Hello Java application and running unit test cases as part of the build
 ```
@@ -89,9 +89,9 @@ cd Day2/Hello
 mvn test
 ```
 Maven test includes the below major Maven phases
-1. mvn compile --> this compiles all source kept at src/main/java and its subfolders
-2. mvn testCompile --> this compiles all source kept at src/test/java and its subfolders
-3. mvn test --> this execute the compiled test case
+1. mvn compile --> this compiles all source code kept at src/main/java and its subfolders
+2. mvn testCompile --> this compiles all source code kept at src/test/java and its subfolders
+3. mvn test --> this executes the compiled test cases
 
 ### Just in case, you are curious to list all default maven life-cycle phases
 ```
@@ -146,6 +146,30 @@ It is a part of the lifecycle for the POM packaging 'jar'. This lifecycle includ
 [INFO] ------------------------------------------------------------------------
 
 </pre>
+
+### You may list all clean maven life-cycle phases
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day2/Hello
+mvn help:describe -Dcmd=clean
+```
+
+### You may list all site maven life-cycle phases
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day2/Hello
+mvn help:describe -Dcmd=site
+```
+
+### You may list all goals maven plugin supports as shown below
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day2/Hello
+mvn help:describe -Dplugin=org.apache.maven.plugins:maven-compiler-plugin:3.1 -Ddetail
+```
 
 ### Building spring-boot java microservice
 You can compile and package the microservice as shown below. This will package the microservice in a jar file.
@@ -229,6 +253,7 @@ http://172.17.0.2:8080
       - If evertything goes well i.e requirements captured is inline with customer's expectation there is no issue
       - In case there is a deviation from the requirements captured vs actual customer expectation, 
         then course correction is almost impossible as the effort is already consumed.
+        
  - SCRUM/Kanban
      - Agile Frameworks
      - helps in getting frequent customer feedbacks
@@ -240,23 +265,24 @@ http://172.17.0.2:8080
                        1. What was yesterday's plan?
                        2. Were there any obstacles?
                        3. What you are planning to do today?
-    - What is the equivalent engineering practice to Daily Stand-up meeting?
-         - Whenever code commit happens, there should be some tools which detects code commit
-           and grabs the latest code, triggers the build, automates testing and then give a build report(feedback)
-           to the team including the person who did code commit.
-         - Test Driven Development (TDD)
-         - Behaviour Driven Development (BDD)
-         - Domain Driven Development (DDD)
+                       
+ - What is the equivalent engineering practice to Daily Stand-up meeting?
+      - Whenever code commit happens, there should be some tools which detects code commit
+        and grabs the latest code, triggers the build, automates testing and then give a build report(feedback)
+        to the team including the person who did code commit.
+      - Test Driven Development (TDD)
+      - Behaviour Driven Development (BDD)
+      - Domain Driven Development (DDD)
          
-         - Continuous Integration
-               - Source code should be commited(integrated) to dev branch several times a day by all the team members
-               - Whenever the code is logically complete, code must be committed without delay. 
-                 To develop a complex functionality, maybe you need to develop 10~15 unit level functions. Whenever 
-                 you completed one unit-level function along with the necessary automated test-cases, you 
-                 should check-in the code.
-               - build failures are seen as a good thing in case build fails due to test case failures.
-               - When one or more automated test cases fail, your automated test cases have caught some bugs, 
-                 which is the reason you are following Continuous Integration.
+    - Continuous Integration
+         - Source code should be commited(integrated) to dev branch several times a day by all the team members
+         - Whenever the code is logically complete, code must be committed without delay. 
+           To develop a complex functionality, maybe you need to develop 10~15 unit level functions. Whenever 
+           you completed one unit-level function along with the necessary automated test-cases, you 
+           should check-in the code.
+         - build failures are seen as a good thing in case build fails due to test case failures.
+         - When one or more automated test cases fail, your automated test cases have caught some bugs, 
+           which is the reason you are following Continuous Integration.
                  
          - Jenkins (CI Server) (Hudson, Teamcity, Bamboo, Microsoft TFS)
               - a former Sun Microsystems employee by name Kohsuke Kawaguji developed Hudson CI Server
@@ -273,8 +299,6 @@ http://172.17.0.2:8080
               - runs the automated test cases as part of build
               - sends out an email with Build report to all team members (Feedback)
      
-### Overview
-
 #### Continuous Integration(CI)
      - Code in frequently integrated several times a day by all the team members
      - any time code is commited, the respective member will also write automated test cases to test his/her
