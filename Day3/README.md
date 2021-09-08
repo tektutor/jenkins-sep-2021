@@ -304,7 +304,13 @@ ubuntu2                    : ok=2    changed=0    unreachable=0    failed=0    s
 5. Each Tasks section has a list of Tasks
 6. Each Task has a description and can invoke atmost one Ansible Module(Python or Powershell script).
 
-
+### Executing the install nginx playbook
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day3/Ansible
+ansible-playbook install-nginx-playbook.yml
+```
 
 
 
