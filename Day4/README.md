@@ -188,3 +188,12 @@ ansible-playbook vault-playbook -e my_msg=Hello --ask-vault-pass
 ```
 When prompted for password, type your vault password, i.e rps@12345
 
+### Executing the ansible vault playbook when vault password is stored in a user-defined file
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day4/AnsibleVault
+ansible-playbook vault-playbook -e my_msg=Hello
+```
+Ansible will locate the secrets file with the help of ansible.cfg.  You need to ensure the .secrets file isn't
+commite to GitHub or similar version control as it would reveal your password :)
