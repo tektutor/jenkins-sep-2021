@@ -2,7 +2,7 @@
 ```
 cd ~/jenkins-sep-2021
 git pull
-cd Day4
+cd Day4/centos-ansible
 cp ~/.ssh/id_rsa.pub authorized_keys
 docker build -t tetktutor/ansible-centos-node .
 ```
