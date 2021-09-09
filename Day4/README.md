@@ -313,3 +313,11 @@ ubuntu1                    : ok=5    changed=1    unreachable=0    failed=0    s
 ubuntu2                    : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
 </pre>
+
+### Executing playbook with custom role
+```
+cd ~/jenkins-sep-2001
+git pull
+cd Day4/CustomAnsibleRole
+ansible-playbook install-apache-playbook.yml
+```
