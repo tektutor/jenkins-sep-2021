@@ -88,3 +88,27 @@ centos1 | SUCCESS => {
     "ping": "pong"
 }
 </pre>
+
+### Provisioning Docker Ansible Nodes using Ansible Playbook
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day4/Loops
+ansible-playbook provision-container-playbook.yml --ask-become-pass
+```
+When prompted for password, you may type the sudo password which is rps@12345
+
+### List and see there is ubuntu-001, ubuntu-002, centos-001 and centos-002 containers
+```
+docker ps
+```
+The expected output is
+<pre>
+[jegan@localhost]$<b> docker ps</b>
+CONTAINER ID   IMAGE                                 COMMAND               CREATED         STATUS         PORTS                                        NAMES
+a0ddb99c163a   tektutor/ansible-centos-node:latest   "/usr/sbin/sshd -D"   4 minutes ago   Up 4 minutes   0.0.0.0:3002->22/tcp, 0.0.0.0:9002->80/tcp   centos-002
+10e864e7abab   tektutor/ansible-centos-node:latest   "/usr/sbin/sshd -D"   4 minutes ago   Up 4 minutes   0.0.0.0:3001->22/tcp, 0.0.0.0:9001->80/tcp   centos-001
+d0e24e0d1b43   tektutor/ansible-ubuntu-node:latest   "/usr/sbin/sshd -D"   4 minutes ago   Up 4 minutes   0.0.0.0:2002->22/tcp, 0.0.0.0:8002->80/tcp   ubuntu-002
+f5d024fc3540   tektutor/ansible-ubuntu-node:latest   "/usr/sbin/sshd -D"   4 minutes ago   Up 4 minutes   0.0.0.0:2001->22/tcp, 0.0.0.0:8001->80/tcp   ubuntu-001
+
+</pre>
