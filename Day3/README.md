@@ -32,6 +32,19 @@
           - Ansible, Puppet, Chef & SaltStack
      - are expected to automate Pre-Prod, Staging, Production environment setup using Configuration Management Tools
  
+### Why Configuration Management Tools
+
+Programming Languages are classied into 2 major categories
+1. Imperative
+	Examples:
+	   C/C++,Java, Python, Shell Scripts, Powershell, Batch Files, etc
+	1. What you need to automate?  You wanted to install latest version of Weblogic.
+	2. How you are going to automate?
+3. Declarative
+        Ansible, Puppet, Chef and SaltStack
+	1. You just need to tell the language what you wanted to automate
+	2. How part will be taken care by the language.
+ 
 # Ansible
   - Configuration Management Tool
 	- it is a Infrastruce as a Code Tool
