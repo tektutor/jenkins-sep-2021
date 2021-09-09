@@ -67,6 +67,7 @@
 	- are Python scripts in case of Unix/Linux/Mac Ansible nodes
 	- are Powershell scripts in case of Windows Ansible nodes
 	- modules are the one which does Infrastructure automation
+	- can be built-in that comes out of the box with Ansible or user-defined custom modules
    	  e.g
 	    - copy - copies file from local to ansible nodes and vice versa
 	    - file - helps in creating files/folders on the ansible node
@@ -112,12 +113,12 @@ ansible --version
 ansible-doc -l | wc -l
 ```
 
-### You can get detailed help about any particular modules as shown below
+### You can get detailed help about any particular module as shown below
 ```
 ansible-doc apt
 ```
 
-### Build custom ubuntu image to use as Ansible containers
+### Building custom ubuntu image to use as Ansible containers
 We need some Virtual Machines or On-Prem servers to be used as Ansible nodes, since we don't have additional Virtual Machines in training setup, we would like to use containers as Ansible nodes.
 
 Let us generate key pairs for rps user
@@ -159,7 +160,7 @@ docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/a
 docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ansible-ubuntu-node 
 ```
 
-### Let SSH into ubuntu1 to test if the custom image works as expected
+### Let's SSH into ubuntu1 to test if the custom image works as expected
 ```
 ssh -p 2001 root@localhost
 exit
@@ -187,7 +188,7 @@ applicable law.
 root@ubuntu1:~# exit
 </pre>
 
-### Let SSH into ubuntu2 to test if the custom image works as expected
+### Let's SSH into ubuntu2 to test if the custom image works as expected
 ```
 ssh -p 2002 root@localhost
 exit
@@ -223,11 +224,11 @@ ansible -i hosts all -m ping
 ```
 <pre>
 -i - this switch indicates what follows is the inventory name
--m - this switch indicates what follows is the name of the module we would like to invoke on Ansible nodoes
+-m - this switch indicates what follows is the name of the module name
 all - indicates the group of machines defined in the inventory file
 </pre>
-The expected output is
 
+The expected output is
 <pre>
 [jegan@localhost Ansible]$ ansible -i hosts all -m ping
 ubuntu1 | SUCCESS => {
@@ -265,7 +266,7 @@ The below ansible ad-hoc command will show IP Address of ubuntu1 and ubuntu2 ans
 ansible -i hosts all -m shell -a "hostname -i"
 ```
 
-### Running the first ansible playbook
+### Running your first ansible playbook
 ```
 cd ~/jenkins-sep-2021
 git pull
@@ -295,11 +296,12 @@ ubuntu2                    : ok=2    changed=0    unreachable=0    failed=0    s
 
 ### Ansible Playbook structure
 1. Playbook is a YAML file
-2. Each Playbook can have a list of Play
+2. Each Playbook has a list of Plays
 3. Each Play will target atleast one Ansible Node(Server)
 4. Each Play has an optional Tasks and Roles sections
-5. Each Tasks section has a list of Tasks
-6. Each Task has a description and can invoke atmost one Ansible Module(Python or Powershell script).
+5. Each Play has an optional vars and/or vars_files section
+6. Each Tasks section has a list of Tasks
+7. Each Task has a description and can invoke atmost one Ansible Module(Python or Powershell script).
 
 ### Executing the install nginx playbook
 ```
