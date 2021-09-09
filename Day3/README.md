@@ -317,8 +317,8 @@ ansible-playbook install-nginx-playbook.yml
 ansible ubuntu1 -m ping
 ```
 
-1. Ansible find ansible.cfg in current directory and identifies the inventory it should be using
-2. From the inventory file, Ansible understand how to connect to ubuntu1 ansible node
+1. Ansible finds ansible.cfg in current directory and identifies the inventory it should be using
+2. From the inventory file, Ansible understands how to connect to ubuntu1 ansible node
 3. Ansible will perform SSH into ubuntu1 ansible node
 4. Ansible creates tmp directory in Ansible Controller machine(ACM) and Ansible node
 5. Ansible copies the ping.py from ACM to Ansible node
