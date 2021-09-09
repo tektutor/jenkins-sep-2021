@@ -137,3 +137,54 @@ git pull
 cd Day4/Loops
 ansible-playbook dictionary-playbook.yml
 ```
+
+### Creating vault protected file
+```
+cd ~/jenkins-sep-2021
+cd Day4/AnsibleVault
+ansible-vault create credentials.yml
+```
+When prompted for password, type your password and confirm the same password.
+
+### Viewing vault-protected file
+```
+ansible-vault view credentials.yml --ask-vault-pass
+```
+Type your vault password, rps@12345
+
+### Edit vault-protected file
+```
+ansible-vault edit credentials.yml --ask-vault-pass
+```
+Type your vault password, rps@12345
+
+### Decrypt vault-protected file
+```
+ansible-vault decrypt credentials.yml
+cat credentials.yml
+```
+
+### Encrypt vault-protected file
+```
+ansible-vault encrypt credentials.yml
+cat credentials.yml
+```
+When prompted for password, type your preferred password
+
+
+### Changing your existing vault-password
+```
+ansible-vault rekey credentials.yml
+```
+When prompted for current password type rps@12345, you may change the password to rps@123 and confirm rps@123
+
+
+### Executing the ansible vault playbook
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day4/AnsibleVault
+ansible-playbook vault-playbook -e my_msg=Hello --ask-vault-pass
+```
+When prompted for password, type your vault password, i.e rps@12345
+
