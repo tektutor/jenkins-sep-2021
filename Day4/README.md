@@ -4,7 +4,7 @@ cd ~/jenkins-sep-2021
 git pull
 cd Day4/centos-ansible
 cp ~/.ssh/id_rsa.pub authorized_keys
-docker build -t tetktutor/ansible-centos-node .
+docker build -t tektutor/ansible-centos-node .
 ```
 
 ### List and check the CentOS custom image
