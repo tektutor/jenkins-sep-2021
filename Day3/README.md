@@ -60,16 +60,15 @@
 	- installation is very easy
 	- architecture is very simpler(any one should be understand)
 		- uses existing tools like SSH,SCP/SFTP
-		- user Python scripts to develop Ansible and Ansible Modules
+		- uses Python scripts to develop Ansible and Ansible Modules
   - Ansible Controller Machine (ACM)
 	- is the system where automation scripts(Playbooks) are developed
 	- is the system where Ansible is installed
 
-
   - Ansible Modules
 	- are Python scripts in case of Unix/Linux/Mac Ansible nodes
 	- are Powershell scripts in case of Windows Ansible nodes
-	- module are the one which does automation
+	- modules are the one which does Infrastructure automation
    	  e.g
 	    - copy - copies file from local to ansible nodes and vice versa
 	    - file - helps in creating files/folders on the ansible node
@@ -95,6 +94,7 @@
 	- Puppet - DSL(Ruby)
 	- Chef - DSL(Ruby)
 	- Salt(SaltStack) 
+	
   - Domain Specific Language (DSL)
 	- language in which the automation script 
 
