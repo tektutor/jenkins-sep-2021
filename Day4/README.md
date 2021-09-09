@@ -96,7 +96,7 @@ git pull
 cd Day4/Loops
 ansible-playbook provision-container-playbook.yml --ask-become-pass
 ```
-When prompted for password, you may type the sudo password which rps@12345
+When prompted for password, you may type the sudo password which is rps@12345
 
 ### List and see there is ubuntu-001, ubuntu-002, centos-001 and centos-002 containers
 ```
