@@ -2,7 +2,7 @@
 ```
 cd ~/jenkins-sep-2021
 git pull
-cd Day4/Ansible
+cd Day4
 cp ~/.ssh/id_rsa.pub authorized_keys
 docker build -t tetktutor/ansible-centos-node .
 ```
@@ -53,6 +53,6 @@ fc30df7adc40   tektutor/ansible-centos-node:latest   "/usr/sbin/sshd -D"   9 min
 ```
 cd ~/jenkins-sep-2021
 git pull
-cd Day4/Ansible
+cd Day4
 ansible all -m ping
 ```
