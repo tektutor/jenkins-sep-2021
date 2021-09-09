@@ -15,6 +15,7 @@
 
     - name: Remove existing ubuntu containers
       shell: docker rm -f $(docker ps -aq --filter="name=ubuntu*|centos*")
+      ignore_errors: yes
 
     - name: Provision ubuntu containers
       docker_container:

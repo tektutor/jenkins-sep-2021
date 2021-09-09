@@ -1,0 +1,39 @@
+- name: Build ansible node docker images
+  hosts: localhost
+  become: yes
+  vars:
+    - tektutor_os_list:
+          - ubuntu
+          - centos
+  tasks:
+    - name: Install Extra Packages for Enterprise Linux(EPEL) in CentOS
+      when: ansible_distribution == "CentOS"
+      yum: name=epel-release state=latest
+
+    - name: Install PIP in CentOS
+      when: ansible_distribution == "CentOS"
+      yum: name=python3-pip state=latest
+
+    - name: Install Docker Python SDK
+      shell: pip3 install docker-py
+
+    - name: Remove existing ubuntu and centos containers
+      shell: docker rm -f $(docker ps -aq --filter="name=ubuntu*|centos*")
+      ignore_errors: yes
+
+    - name: Remove the existing ansible images
+      docker_image:
+         name: "tektutor/ansible-{{item}}-node:latest"
+         state: absent
+      with_list: "{{tektutor_os_list}}"
+
+    - name: Build Custom Ansible Node images
+      docker_image:
+         name: "tektutor/ansible-{{item}}-node:latest"
+         build:
+           dockerfile: "{{item}}Dockerfile"
+           path: .
+           pull: no
+         state: present
+         source: build
+      with_list: "{{tektutor_os_list}}"

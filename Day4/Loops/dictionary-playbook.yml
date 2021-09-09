@@ -1,0 +1,12 @@
+- name: Demonstrates use of dictionary variable in playbook
+  hosts: localhost
+  vars:        
+    software_tools_path:
+       JAVA_HOME: "/usr/lib/jvm/java-11-openjdk-11.0.12.0.7-0.el8_4.x86_64" 
+       M2_HOME: "/home/rps/Downloads/apache-maven-3.8.2"
+  tasks:
+    - debug: msg="Java Home Path => {{software_tools_path["JAVA_HOME"]}}"
+    - debug: msg="Maven Home Path => {{software_tools_path["M2_HOME"]}}"
+
+    - debug: var=item
+      with_dict: "{{software_tools_path}}"
