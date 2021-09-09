@@ -88,3 +88,11 @@ centos1 | SUCCESS => {
     "ping": "pong"
 }
 </pre>
+
+### Provisioning Docker Ansible Nodes using Ansible Playbook
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day4/Loops
+ansible-playbook provision-container-playbook.yml 
+```
