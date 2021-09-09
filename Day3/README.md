@@ -82,16 +82,17 @@
        - ansible is "NOT" installed on these machines
        - the softwares that need to be installed	
        - Unix/Linux/Mac Servers
-	   - Python (which comes out of the box)
-	   - SSH Server (mostly comes out of the box)
+         - Python (which comes out of the box)
+         - SSH Server (mostly comes out of the box)
 
        - Windows Servers
-	   - PowerShell(.Net)
-	   - WinRM 
-  - alternate tools
-       - Puppet - DSL(Ruby)
-       - Chef - DSL(Ruby)
-       - Salt(SaltStack) 
+         - PowerShell(.Net)
+         - WinRM 
+         
+  - Alternate for Ansible
+     - Puppet - DSL(Ruby)
+     - Chef - DSL(Ruby)
+     - Salt(SaltStack) 
 	
   - Domain Specific Language (DSL)
        - language in which the automation script 
