@@ -18,7 +18,7 @@
      - does end-to-end smoke test, component test, API test, functional testing, Performance test, 
        Stress Test, Load Test, etc
      - DevOps recommends QA to automate all the types of testing by "Writing code" using Test Frameworks.
-       Test Frameworks
+     - Test Frameworks
           - Behaviour Driven Development (BDD - Test Frameworks)
           - Domain Driven Development (DDD - Test Frameworks)
           - Selenium, Cucumber, Postman,etc
