@@ -4,7 +4,7 @@ cd ~/jenkins-sep-2021
 git pull
 cd Day4/centos-ansible
 cp ~/.ssh/id_rsa.pub authorized_keys
-docker build -t tetktutor/ansible-centos-node .
+docker build -t tektutor/ansible-centos-node .
 ```
 
 ### List and check the CentOS custom image
@@ -56,3 +56,35 @@ git pull
 cd Day4
 ansible all -m ping
 ```
+The expected output is
+<pre>
+[jegan@localhost Day4]$ <b>ansible all -m ping</b>
+ubuntu1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+ubuntu2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+centos2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+centos1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+</pre>
