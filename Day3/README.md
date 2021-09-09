@@ -121,11 +121,11 @@ ansible-doc apt
 ### Building custom ubuntu image to use as Ansible containers
 We need some Virtual Machines or On-Prem servers to be used as Ansible nodes, since we don't have additional Virtual Machines in training setup, we would like to use containers as Ansible nodes.
 
-Let us generate key pairs for rps user
+Let us generate key pairs for rps user. Accept all defaults by hitting enter thrice.
+
 ```
 ssh-keygen
 ```
-Accept all defaults by hitting enter.
 
 ```
 cd ~/jenkins-sep-2021
