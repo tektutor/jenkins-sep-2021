@@ -213,3 +213,103 @@ Ansible will locate the secrets file with the help of ansible.cfg.  You need to 
 commited to GitHub or similar version control as it would reveal your password :)
 
 I commited the .secrets file for your to try out the exercises, but committing vault password file into version control must be avoided.
+
+### Executing the playbook that invokes Custom Ansible Module
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day4/CustomAnsibleModule
+ansible-playbook custom-module-playbook.yml
+```
+
+The expected output is
+<pre>
+[jegan@localhost CustomAnsibleModule]$ <b>ansible-playbook custom-module-playbook.yml</b> 
+
+PLAY [Demonstrates invoking our custom ansible module in a playbook] ****************************************************
+
+TASK [Gathering Facts] **************************************************************************************************
+ok: [ubuntu1]
+ok: [ubuntu2]
+ok: [centos2]
+ok: [centos1]
+
+TASK [Invoke hello custom module] ***************************************************************************************
+changed: [ubuntu2]
+changed: [ubuntu1]
+changed: [centos1]
+changed: [centos2]
+
+TASK [debug] ************************************************************************************************************
+ok: [ubuntu1] => {
+    "output": {
+        "changed": true,
+        "failed": false,
+        "response": "Hello Ansible custom module !"
+    }
+}
+ok: [ubuntu2] => {
+    "output": {
+        "changed": true,
+        "failed": false,
+        "response": "Hello Ansible custom module !"
+    }
+}
+ok: [centos1] => {
+    "output": {
+        "changed": true,
+        "failed": false,
+        "response": "Hello Ansible custom module !"
+    }
+}
+ok: [centos2] => {
+    "output": {
+        "changed": true,
+        "failed": false,
+        "response": "Hello Ansible custom module !"
+    }
+}
+
+TASK [Retrieve IP Address] **********************************************************************************************
+ok: [ubuntu1]
+ok: [ubuntu2]
+ok: [centos1]
+ok: [centos2]
+
+TASK [debug] ************************************************************************************************************
+ok: [ubuntu1] => {
+    "output": {
+        "IPAddress": "172.17.0.2",
+        "changed": false,
+        "failed": false
+    }
+}
+ok: [ubuntu2] => {
+    "output": {
+        "IPAddress": "172.17.0.3",
+        "changed": false,
+        "failed": false
+    }
+}
+ok: [centos1] => {
+    "output": {
+        "IPAddress": "172.17.0.4",
+        "changed": false,
+        "failed": false
+    }
+}
+ok: [centos2] => {
+    "output": {
+        "IPAddress": "172.17.0.5",
+        "changed": false,
+        "failed": false
+    }
+}
+
+PLAY RECAP **************************************************************************************************************
+centos1                    : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+centos2                    : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ubuntu1                    : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ubuntu2                    : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+</pre>
