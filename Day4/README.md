@@ -114,6 +114,13 @@ d0e24e0d1b43   tektutor/ansible-ubuntu-node:latest   "/usr/sbin/sshd -D"   4 min
 f5d024fc3540   tektutor/ansible-ubuntu-node:latest   "/usr/sbin/sshd -D"   4 minutes ago   Up 4 minutes   0.0.0.0:2001->22/tcp, 0.0.0.0:8001->80/tcp   ubuntu-001
 
 </pre>
+### Executing the ansible vault playbook
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day4/AnsibleVault
+ansible-playbook vault-playbook -e my_msg=Hello --ask-vault-pass
+```
 
 ### Executing the playbook that builds docker ansible node images
 The below playbook demonstrates one practical usecase of list variables in Ansible Playbook
@@ -123,7 +130,14 @@ git pull
 cd Day4/Loops
 ansible-playbook build-ansible-node-docker-images-playbook.yml --ask-become-pass
 ```
-When prompted type your sudo password i.e rps@12345
+When prompted ### Executing the ansible vault playbook
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day4/AnsibleVault
+ansible-playbook vault-playbook -e my_msg=Hello --ask-vault-pass
+```
+type your sudo password i.e rps@12345
 
 ### List and see if the images build are shown
 ```
@@ -188,3 +202,14 @@ ansible-playbook vault-playbook -e my_msg=Hello --ask-vault-pass
 ```
 When prompted for password, type your vault password, i.e rps@12345
 
+### Executing the ansible vault playbook when vault password is stored in a user-defined file
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day4/AnsibleVault
+ansible-playbook vault-playbook -e my_msg=Hello
+```
+Ansible will locate the secrets file with the help of ansible.cfg.  You need to ensure the .secrets file isn't
+commited to GitHub or similar version control as it would reveal your password :)
+
+I commited the .secrets file for your to try out the exercises, but committing vault password file into version control must be avoided.
