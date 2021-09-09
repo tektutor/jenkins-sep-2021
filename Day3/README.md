@@ -47,53 +47,50 @@
      - Ansible Core (Opensource)
      - Ansible Tower - RedHat(IBM Product)
   - open source tool
-  - developed by Michael Deehan
   - Ansible is developed in Python
-  - Michael Deehan - a former RedHat employee
-  - Michael incorporated a company by name Ansible Inc
-  - Ansible Inc organization created the Ansible core open source tool
+  - developed by Michael Deehan, a former RedHat employee
+  - Michael Deehan after he quit RedHat, incorporated a company by name Ansible Inc
+  - Ansible Inc organization created the Ansible core as a open source tool
   - Once Ansible became very popular, RedHat acquired Ansible Inc
-  - RedHat developed Ansible Tower(Enterprise Product - Commercial use)
+  - RedHat developed Ansible Tower(Enterprise Product for Commercial use)
   - RedHat was acquired by IBM
 
-  - Ansible 
-	- uses YAML(Yet Another Markup Language) as the DSL
+  - uses YAML(Yet Another Markup Language) as the DSL
 	- learning is easy
 	- installation is very easy
 	- architecture is very simpler(any one should be understand)
 		- uses existing tools like SSH,SCP/SFTP
 		- user Python scripts to develop Ansible and Ansible Modules
-        - Ansible Controller Machine (ACM)
-		- is the system where automation scripts(Playbooks) are developed
-		- is the system where Ansible is installed
+  - Ansible Controller Machine (ACM)
+	- is the system where automation scripts(Playbooks) are developed
+	- is the system where Ansible is installed
 
 
-	- Ansible Modules
-		- are Python scripts in case of Unix/Linux/Mac Ansible nodes
-		- are Powershell scripts in case of Windows Ansible nodes
-		- module are the one which does automation
-			e.g
-			  copy - copies file from local to ansible nodes and vice versa
-			  file - helps in creating files/folders on the ansible node
-			  apt  - helps in installing/uninstalling softwares on Debian Linux Distros
-			  yum  - helps in installing/uninstalling softwares on RedHat Linux Distros
+  - Ansible Modules
+	- are Python scripts in case of Unix/Linux/Mac Ansible nodes
+	- are Powershell scripts in case of Windows Ansible nodes
+	- module are the one which does automation
+   	  e.g
+	    - copy - copies file from local to ansible nodes and vice versa
+	    - file - helps in creating files/folders on the ansible node
+	    - apt  - helps in installing/uninstalling softwares on Debian Linux Distros
+	    - yum  - helps in installing/uninstalling softwares on RedHat Linux Distros
 
-	- Ansible Playbooks
-		- YAML files
-		- will invoke one or more Ansible module to automate configuration management
+        - Ansible Playbooks
+	    - YAML files
+            - will invoke one or more Ansible module to automate configuration management
 		    
 	- Ansible Nodes
-		- are the machines where configuration management automation must be done
-		- ansible is "NOT" installed on these machines
-		- the softwares that need to be installed	
-			Unix/Linux/Mac Servers
-				- Python (which comes out of the box)
-				- SSH Server (mostly comes out of the box)
+	    - are the machines where configuration management automation must be done
+	    - ansible is "NOT" installed on these machines
+	    - the softwares that need to be installed	
+	       - Unix/Linux/Mac Servers
+		   - Python (which comes out of the box)
+		   - SSH Server (mostly comes out of the box)
 
-			Windows Servers
-				- PowerShell(.Net)
-				- WinRM 
-
+               - Windows Servers
+		    - PowerShell(.Net)
+		    - WinRM 
   - alternate tools
 	- Puppet - DSL(Ruby)
 	- Chef - DSL(Ruby)
