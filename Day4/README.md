@@ -94,5 +94,6 @@ centos1 | SUCCESS => {
 cd ~/jenkins-sep-2021
 git pull
 cd Day4/Loops
-ansible-playbook provision-container-playbook.yml 
+ansible-playbook provision-container-playbook.yml --ask-become-pass
 ```
+When prompted for password, you may type the sudo password which rps@12345
