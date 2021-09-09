@@ -19,9 +19,9 @@
        Stress Test, Load Test, etc
      - DevOps recommends QA to automate all the types of testing by "Writing code"
        Test Frameworks
-           - Behaviour Driven Development (BDD - Test Frameworks)
-           - Domain Driven Development (DDD - Test Frameworks)
-           - Selenium, Cucumber, Postman,etc
+          - Behaviour Driven Development (BDD - Test Frameworks)
+          - Domain Driven Development (DDD - Test Frameworks)
+          - Selenium, Cucumber, Postman,etc
      - QA folks are expected to learn Configuration Management Tools to automate QA environment setup
  
  - Operations Team (System Administrators, DBA, Infra Engineers, Production support )
