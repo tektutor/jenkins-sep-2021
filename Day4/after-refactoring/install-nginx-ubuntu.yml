@@ -1,0 +1,3 @@
+- name: Install nginx in Ubuntu node
+  apt:  name=nginx state=latest update_cache=yes
+

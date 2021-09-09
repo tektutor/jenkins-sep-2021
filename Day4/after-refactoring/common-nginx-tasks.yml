@@ -1,0 +1,21 @@
+- name: Check if you are able to access nginx web page
+  shell: curl http://localhost:80
+  register: curl_status
+  ignore_errors: yes
+
+- name: Start the nginx server in Ansible node 
+  when: curl_status.failed == true
+  shell: nginx
+
+- name: Create custom web root folder in Ansible node
+  file: path=/var/html state=directory mode=0755
+
+- name: Retrieve IP Address of Ansible node
+  shell: hostname -i
+  register: ipaddress
+
+- name: Deploy custom html page into nginx server
+  template: src=index.html dest=/var/html/index.html
+
+- name: Restart nginx serve to apply the config changes in Ansible node
+  shell: nginx -s reload

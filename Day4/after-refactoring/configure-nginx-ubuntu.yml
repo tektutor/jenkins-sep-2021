@@ -1,0 +1,2 @@
+- name: Configure nginx to pick html pages from our custom folder in Ubuntu node
+  copy: src=default dest=/etc/nginx/sites-available/default

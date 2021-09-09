@@ -1,0 +1,2 @@
+- name: Install curl utility in Ubuntu node
+  apt: name=curl state=latest

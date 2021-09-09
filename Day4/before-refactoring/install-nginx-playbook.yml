@@ -1,0 +1,58 @@
+- name: Install nginx web server, configure it and deploy custom web page in it
+  hosts: all
+  vars:
+    - greeting_msg: Welcome to DevOps!
+    - provisioner_tool: Docker
+    - conf_mgr_tool: Ansible
+  tasks:
+    - name: Install nginx in Ubuntu node
+      when: ( ansible_distribution == "Ubuntu" and ansible_os_family == "Debian" )
+      apt:  name=nginx state=latest update_cache=yes
+
+    - name: Install curl utility in Ubuntu node
+      when: ( ansible_distribution == "Ubuntu" and ansible_os_family == "Debian" )
+      apt: name=curl state=latest
+
+    - name: Install Extra Package for Enterprise Linux (EPEL) in CentOS node
+      when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" )
+      yum: name=epel-release state=latest
+
+    - name: Install nginx in CentOS node
+      when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" )
+      yum: name=nginx state=latest
+
+    - name: Install curl utility in CentOS node
+      when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" )
+      yum: name=curl state=latest
+
+    - name: Check if you are able to access nginx web page
+      shell: curl http://localhost:80
+      register: curl_status
+      ignore_errors: yes
+
+    - debug: var=curl_status
+
+    - name: Start the nginx server in Ansible node 
+      when: curl_status.failed == true
+      shell: nginx
+
+    - name: Create custom web root folder in Ansible node
+      file: path=/var/html state=directory mode=0755
+
+    - name: Configure nginx to pick html pages from our custom folder in Ubuntu node
+      when: ( ansible_distribution == "Ubuntu" and ansible_os_family == "Debian" )
+      copy: src=default dest=/etc/nginx/sites-available/default
+
+    - name: Configure nginx to pick html pages from our custom folder in CentOS node
+      when: ( ansible_distribution == "CentOS" and ansible_os_family == "RedHat" )
+      copy: src=nginx.conf dest=/etc/nginx/nginx.conf
+
+    - name: Retrieve IP Address of Ansible node
+      shell: hostname -i
+      register: ipaddress
+
+    - name: Deploy custom html page into nginx server
+      template: src=index.html dest=/var/html/index.html
+
+    - name: Restart nginx serve to apply the config changes in Ansible node
+      shell: nginx -s reload

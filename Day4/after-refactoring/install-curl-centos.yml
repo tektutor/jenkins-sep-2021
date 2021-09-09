@@ -1,0 +1,2 @@
+- name: Install curl utility in CentOS node
+  yum: name=curl state=latest

@@ -1,0 +1,10 @@
+- name: Install nginx web server, configure it and deploy custom web page in it
+  hosts: all
+  vars_files:
+     - nginx-conf.yml   
+  tasks:
+    - include: "install-nginx-{{ansible_distribution|lower}}.yml"
+    - include: "install-curl-{{ansible_distribution|lower}}.yml"
+    - include: "configure-nginx-{{ansible_distribution|lower}}.yml"
+    - include: common-nginx-tasks.yml
+
