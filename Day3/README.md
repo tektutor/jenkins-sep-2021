@@ -26,8 +26,9 @@
  
  - Operations Team (System Administrators, DBA, Infra Engineers, Production support )
      - Probably Operation Team have been doing administrative activities manually 
-     - DevOps recommends them to automate all the administrative activities by "Writing code"
+     - DevOps recommends them to automate all the administrative activities by "Writing code" using 
        Configuration Management Tools
+     - Configuration Management Tools
           - Ansible, Puppet, Chef & SaltStack
      - are expected to automate Pre-Prod, Staging, Production environment setup using Configuration Management Tools
  
