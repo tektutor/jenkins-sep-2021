@@ -90,6 +90,8 @@ centos1 | SUCCESS => {
 </pre>
 
 ### Provisioning Docker Ansible Nodes using Ansible Playbook
+The below playbook demonstrates one practical usecase of sequence loop in Ansible Playbook
+
 ```
 cd ~/jenkins-sep-2021
 git pull
@@ -112,3 +114,26 @@ d0e24e0d1b43   tektutor/ansible-ubuntu-node:latest   "/usr/sbin/sshd -D"   4 min
 f5d024fc3540   tektutor/ansible-ubuntu-node:latest   "/usr/sbin/sshd -D"   4 minutes ago   Up 4 minutes   0.0.0.0:2001->22/tcp, 0.0.0.0:8001->80/tcp   ubuntu-001
 
 </pre>
+
+### Executing the playbook that builds docker ansible node images
+The below playbook demonstrates one practical usecase of list variables in Ansible Playbook
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day4/Loops
+ansible-playbook build-ansible-node-docker-images-playbook.yml --ask-become-pass
+```
+When prompted type your sudo password i.e rps@12345
+
+### List and see if the images build are shown
+```
+docker images
+```
+
+### Running the playbook that demonstrates dictionary variable
+```
+cd ~/jenkins-sep-2021
+git pull
+cd Day4/Loops
+ansible-playbook dictionary-playbook.yml
+```
