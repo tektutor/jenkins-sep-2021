@@ -167,7 +167,7 @@ exit
 ```
 The expected output is 
 <pre>
-[jegan@localhost jenkins-sep-2021]$ ssh -p 2001 root@localhost
+[jegan@localhost jenkins-sep-2021]$ <b>ssh -p 2001 root@localhost</b>
 The authenticity of host '[localhost]:2001 ([::1]:2001)' can't be established.
 ECDSA key fingerprint is SHA256:k1bVnKnB97AVJOFzMLRVkarXFPX11KQfTWLOoL/O7v4.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
@@ -195,7 +195,8 @@ exit
 ```
 The expected output is
 <pre>
-thenticity of host '[localhost]:2002 ([::1]:2002)' can't be established.
+[jegan@localhost jenkins-sep-2021]$ <b>ssh -p 2002 root@localhost</b>
+The authenticity of host '[localhost]:2002 ([::1]:2002)' can't be established.
 ECDSA key fingerprint is SHA256:k1bVnKnB97AVJOFzMLRVkarXFPX11KQfTWLOoL/O7v4.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 Warning: Permanently added '[localhost]:2002' (ECDSA) to the list of known hosts.
@@ -230,7 +231,7 @@ all - indicates the group of machines defined in the inventory file
 
 The expected output is
 <pre>
-[jegan@localhost Ansible]$ ansible -i hosts all -m ping
+[jegan@localhost Ansible]$ <b>ansible -i hosts all -m ping</b>
 ubuntu1 | SUCCESS => {
     "ansible_facts": {
         "discovered_interpreter_python": "/usr/bin/python3"
