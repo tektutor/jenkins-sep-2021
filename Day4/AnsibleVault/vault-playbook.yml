@@ -1,0 +1,8 @@
+- name: Demonstrates accessing vault protected sensitive data
+  hosts: localhost
+  vars_files:
+    - credentials.yml
+  tasks:
+    - debug: msg="Username is {{username}} and Password is {{password}}"
+
+    - debug: var=my_msg
