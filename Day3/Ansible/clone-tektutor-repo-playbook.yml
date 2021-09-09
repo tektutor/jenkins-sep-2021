@@ -1,0 +1,9 @@
+- name: This playbook demonstrates on how to clone github repo
+  hosts: localhost
+  tasks:
+    - name: Clone the TekTutor GitHub repo
+      git:
+        repo: https://github.com/tektutor/jenkins-sep-2021.git
+        dest: /tmp/tektutor
+        clone: yes
+        update: yes
