@@ -1,0 +1,9 @@
+- name: Install Extra Packages for Enterprise Linux(EPEL) in CentOS
+  yum: name=epel-release state=latest
+  tags:
+    - CentOS
+
+- name: Install apache web server in CentOS
+  yum: name=httpd state=latest 
+  tags:
+    - CentOS

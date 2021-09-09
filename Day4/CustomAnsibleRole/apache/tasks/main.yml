@@ -1,0 +1,5 @@
+---
+# tasks file for apache
+- include: "install-apache-{{ansible_distribution|lower}}.yml"
+- include: "configure-apache-{{ansible_distribution|lower}}.yml"
+- include: common-apache-tasks.yml

@@ -1,0 +1,4 @@
+- name: This playbook demonstrates using our custom ansible role install apache web server
+  hosts: all
+  roles:
+    - apache

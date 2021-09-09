@@ -1,0 +1,4 @@
+---
+# vars file for apache
+provisioner_tool: Docker
+conf_mgr_tool: Ansible

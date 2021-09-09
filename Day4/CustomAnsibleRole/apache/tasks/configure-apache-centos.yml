@@ -1,0 +1,6 @@
+- name: Configure apache document root folder in CentOS
+  copy: src=httpd.conf dest=/etc/httpd/conf/httpd.conf
+  notify:
+     - Restart apache web server in CentOS
+  tags:
+    - CentOS
