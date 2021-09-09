@@ -1,0 +1,5 @@
+- name: Demonstrates sequence loop
+  hosts: localhost
+  tasks:
+    - debug: var=item
+      with_sequence: start=1 end=5
