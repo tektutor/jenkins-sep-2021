@@ -17,7 +17,7 @@
  - QA
      - does end-to-end smoke test, component test, API test, functional testing, Performance test, 
        Stress Test, Load Test, etc
-     - DevOps recommends QA to automate all the types of testing by "Writing code"
+     - DevOps recommends QA to automate all the types of testing by "Writing code" using Test Frameworks.
        Test Frameworks
           - Behaviour Driven Development (BDD - Test Frameworks)
           - Domain Driven Development (DDD - Test Frameworks)
@@ -37,11 +37,11 @@
   - Configuration Management Tool
 	- it is a Infrastruce as a Code Tool
 	- helps in automating administrative activities
-		- you should be able to provision Virtual Machines
-		- you should be able to provision containers, cloud bases VMs
-		- install/uninstall softwares (Oracle, Weblogic,etc,.)
-		- configure softwares (Configure Weblogic, etc)
-		- Restart services/machines
+	     - you should be able to provision Virtual Machines
+	      - you should be able to provision containers, cloud bases VMs
+	      - install/uninstall softwares (Oracle, Weblogic,etc,.)
+	      - configure softwares (Configure Weblogic, etc)
+	      - Restart services/machines
   - comes in 2 flavours
      - Ansible Core (Opensource)
      - Ansible Tower - RedHat(IBM Product)
