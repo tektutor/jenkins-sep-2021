@@ -32,8 +32,6 @@
           - Ansible, Puppet, Chef & SaltStack
      - are expected to automate Pre-Prod, Staging, Production environment setup using Configuration Management Tools
  
-
-
 # Ansible
   - Configuration Management Tool
 	- it is a Infrastruce as a Code Tool
@@ -75,28 +73,28 @@
 	    - apt  - helps in installing/uninstalling softwares on Debian Linux Distros
 	    - yum  - helps in installing/uninstalling softwares on RedHat Linux Distros
 
-        - Ansible Playbooks
-	    - YAML files
-            - will invoke one or more Ansible module to automate configuration management
-		    
-	- Ansible Nodes
-	    - are the machines where configuration management automation must be done
-	    - ansible is "NOT" installed on these machines
-	    - the softwares that need to be installed	
-	       - Unix/Linux/Mac Servers
-		   - Python (which comes out of the box)
-		   - SSH Server (mostly comes out of the box)
+  - Ansible Playbooks
+       - YAML files
+       - will invoke one or more Ansible module to automate configuration management
+       
+  - Ansible Nodes
+       - are the machines where configuration management automation must be done
+       - ansible is "NOT" installed on these machines
+       - the softwares that need to be installed	
+       - Unix/Linux/Mac Servers
+	   - Python (which comes out of the box)
+	   - SSH Server (mostly comes out of the box)
 
-               - Windows Servers
-		    - PowerShell(.Net)
-		    - WinRM 
+       - Windows Servers
+	   - PowerShell(.Net)
+	   - WinRM 
   - alternate tools
-	- Puppet - DSL(Ruby)
-	- Chef - DSL(Ruby)
-	- Salt(SaltStack) 
+       - Puppet - DSL(Ruby)
+       - Chef - DSL(Ruby)
+       - Salt(SaltStack) 
 	
   - Domain Specific Language (DSL)
-	- language in which the automation script 
+       - language in which the automation script 
 
 ### Installing Ansible in CentOS 
 ```
