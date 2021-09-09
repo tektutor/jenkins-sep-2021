@@ -39,10 +39,10 @@
 	- it is a Infrastruce as a Code Tool
 	- helps in automating administrative activities
 	     - you should be able to provision Virtual Machines
-	      - you should be able to provision containers, cloud bases VMs
-	      - install/uninstall softwares (Oracle, Weblogic,etc,.)
-	      - configure softwares (Configure Weblogic, etc)
-	      - Restart services/machines
+	     - you should be able to provision containers, cloud bases VMs
+	     - install/uninstall softwares (Oracle, Weblogic,etc,.)
+	     - configure softwares (Configure Weblogic, etc)
+	     - Restart services/machines
   - comes in 2 flavours
      - Ansible Core (Opensource)
      - Ansible Tower - RedHat(IBM Product)
