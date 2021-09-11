@@ -247,7 +247,7 @@ http://172.17.0.2:8080
 
 ## Agile Methodology
   - Fail-fast Project development Methodology
-  - In case Waterfall Framework
+  - In case of Waterfall Framework
       - customer feedback arrives pretty delayed
       - Once in 3 months or 6 months or yearly project/product releases are shared with the customer
       - If evertything goes well i.e requirements captured is inline with customer's expectation there is no issue
@@ -263,21 +263,22 @@ http://172.17.0.2:8080
                 - Daily stand-up meeting
                    - Inspect and Adapt meeting(Fail-fast meeting)
                        1. What was yesterday's plan?
-                       2. Were there any obstacles?
+                       2. Were there any obstacles? Some team members can help offline after the meeting.
                        3. What you are planning to do today?
                        
  - What is the equivalent engineering practice to Daily Stand-up meeting?
-      - Whenever code commit happens, there should be some tools which detects code commit
+      - Whenever code commit happens, there should be some tool which detects code commit
         and grabs the latest code, triggers the build, automates testing and then give a build report(feedback)
         to the team including the person who did code commit.
-      - Test Driven Development (TDD)
-      - Behaviour Driven Development (BDD)
-      - Domain Driven Development (DDD)
+      - Recommended approaches 
+          - Test Driven Development (TDD)
+          - Behaviour Driven Development (BDD)
+          - Domain Driven Development (DDD)
          
     - Continuous Integration
          - Source code should be commited(integrated) to dev branch several times a day by all the team members
          - Whenever the code is logically complete, code must be committed without delay. 
-           To develop a complex functionality, maybe you need to develop 10~15 unit level functions. Whenever 
+           To develop a complex functionality, assuming you need to develop 10~15 unit level functions. Whenever 
            you completed one unit-level function along with the necessary automated test-cases, you 
            should check-in the code.
          - build failures are seen as a good thing in case build fails due to test case failures.
@@ -286,12 +287,14 @@ http://172.17.0.2:8080
                  
          - Jenkins (CI Server) (Hudson, Teamcity, Bamboo, Microsoft TFS)
               - a former Sun Microsystems employee by name Kohsuke Kawaguji developed Hudson CI Server
-              - developed using Java but works for any programming language stack
-              - Sun Microsystems was acquired by Oracle (led by Larry Elison)
+              - was developed using Java but works for any programming language stack
+              - Sun Microsystems was acquired by Oracle (led by Larry Ellison)
+              - Hudson team got split into two, there were conflicts of interest in the Hudson future 
+                strategy after Oracle acquired Sun MicroSystems
               - a part of Hudson team came out of Oracle and they created branch(Jenkins) keeping Hudson code 
                 base as baseline
               - Oracle maintains Hudson CI Server, while the Jenkins CI Server is being developed as opensource tool
-                by the Kohsuke Kawaguji and Opensource community
+                by the Kohsuke Kawaguji with more than 10000 active Opensource community contributers.
               - will automatically detect code changes done in Version Control 
                 (GitHub,GitLab, BitBucket, Perforce,etc)
               - will get the latest code snapshot from GitHub
@@ -300,10 +303,10 @@ http://172.17.0.2:8080
               - sends out an email with Build report to all team members (Feedback)
      
 #### Continuous Integration(CI)
-     - Code in frequently integrated several times a day by all the team members
+     - Source code is frequently integrated several times a day by all the team members
      - any time code is commited, the respective member will also write automated test cases to test his/her
-       code part of code commit
-     - CI Servers like Jenkins, automates the build and test process and give Build Report as feedback
+       source code part of code commit
+     - CI Servers like Jenkins, automates the build and test process and gives Build Report as feedback
      - Each time code is commited, CI Servers repeats the existing and new Test cases added to verify
        the new functionality and existing functionalities.  This helps in reporting bugs as and when new code
        is committed (fail-fast approach).
@@ -314,7 +317,11 @@ http://172.17.0.2:8080
        further test in a production equivalent environment to certify the release is good to go live or not.
        
 #### Continuous Delivery
-     - Once the release binaries are tested thoroughly, the release binaries will be deployed to the live production
+     - Highest maturity level in DevOps, this is followed by some very big product companies, who are highly confident
+       about the quality of automated test-cases added by their team.
+     - In this end-2-end build and test is automated all way to deliveries to live production 
+       environment automatically.
+     - Once the release binaries are certified, the release binaries will be deployed/delivered to the live production
        environment or to the Customer's staging environment to go live any time the customer decides.
 
 #### Setting up Jenkins
@@ -329,7 +336,9 @@ Once you see, Jenkins is fully up and running, you may access Jenkins web page f
 
 ### Let's create a CI/CD pipeline in Jenkins
 
-1. Create a Freestyle Jenkins Job
+1. Create a Freestyle Jenkins Job (Dashboard --> New Item(Create New Job) --> FreeStyle Job.  Let's call this
+   Freestyle Job as "Compile Hello Java Application".
+   
    In the SCM (Source Code Management) Section, select "Git" and paste the below GitHub Repository
    https://github.com/tektutor/jenkins-sep-2021.git
    
@@ -337,8 +346,45 @@ Once you see, Jenkins is fully up and running, you may access Jenkins web page f
    H/02 * * * *
    
    In the Build Section, paste the below
+   cd Day2/Hello
+   mvn compile
    
+   Save the Job.
    
+ 2. Create your second Freestyle Jenkins Job by copying existing "Copy Hello Java Application" and let's call
+    this Job as "Test Hello Java Application".
+    
+    In the Build Triggers section, unselect "Poll SCM" and select "Build after other projects are built" and choose
+    "Compile Hello Java Application".
+    
+    In the Build section, replace "mvn compile" with "mvn test" and Save the Job.
+    
+ 3. Create your third Freestyle Jenkins Job by copying existing "Test Hello Java Application" and let's call this
+    Job as "Package Hello Java Application".
+    
+    In the Build Triggers section, select the "Build after other projects are build" and this time change 
+    "Compile Hello Java Application" to "Test Hello Java Application".
+    
+    In the Build section, replace "mvn test" with "mvn package" and Save the Job.
+
+ 4. Create your fourth Freestyle Jenkins Job by copying existing "Package Hello Java Application" and let's call this
+    Job as "Install Hello Java Application".
+    
+    In the Build Triggers section, select the "Build after other projects are build" and this time change
+    "Test Hello Java Application" to "Package Hello Java Application".
+
+    In the Build section, replace "mvn package" to "mvn install" and Save the Job.
+    
+ 5. Create your final Freestyle Jenkins Job by copying existing "Install Hello Java Application" and let's call this
+    Job as "Deploy Hello Java Application Aritifacts to Artifactory".
+    
+    In the Build Triggers section, select the "Buid after other projects are build" and this time change 
+    "Package Hello Java Application" to "Install Hello Java Application".
+    
+    In the Build section, replace "mvn install" to "mvn deploy" and Save the Job.
+
+Any source code commit to "jenkins-sep-2021" GitHub repository will automatically trigger the Jenkins CI/CD pipeline you created.
+
 ### Setting up JFrog artifactory as a docker container
 ```
 docker run -d --name artifactory --hostname artifactory -p 8081-8082:8081-8082 releases-docker.jfrog.io/jfrog/artifactory-oss:latest
