@@ -336,7 +336,7 @@ Once you see, Jenkins is fully up and running, you may access Jenkins web page f
 
 ### Let's create a CI/CD pipeline in Jenkins
 
-1. Create a Freestyle Jenkins Job (Dashboard --> New Item(Create New Job) --> FreeStyle Job.  Let's call this
+1. Create a Freestyle Jenkins Job Dashboard --> New Item(Create New Job) --> FreeStyle Job.  Let's call this
    Freestyle Job as "Compile Hello Java Application".
    
    In the SCM (Source Code Management) Section, select "Git" and paste the below GitHub Repository
